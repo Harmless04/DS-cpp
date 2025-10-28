@@ -1,0 +1,20 @@
+int maxVowels(string s, int k) {
+int n =s.size();
+auto isVowel = [](char c){
+    return c == 'a' || c=='e' || c=='i' || c=='o' || c=='u';
+};
+//first window
+int max_count = 0;
+for(int i=0;i<k;i++){
+    if(isVowel(s[i])) max_count++;
+}
+int window_count=max_count;
+//slide windows
+for(int i=k;i<n;i++){
+    if(isVowel(s[i])) window_count++;
+    if(isVowel(s[i-k])) window_count--;
+
+    max_count=max(max_count,window_count);
+}
+return max_count;
+};

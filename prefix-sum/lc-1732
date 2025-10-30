@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int largestAltitude(vector<int>& gain) {
+        
+        int crntalt =0;
+        int highpnt =0;
+        for(int altitudeGain : gain){
+            crntalt += altitudeGain;
+            highpnt = max(highpnt, crntalt);
+        }
+        return highpnt;
+    }
+};

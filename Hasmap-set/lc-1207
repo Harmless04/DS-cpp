@@ -12,6 +12,4 @@ freq[num]++;
             counts.insert(it.second);
 }
 return true;
-        
-
     }};

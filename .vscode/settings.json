@@ -15,6 +15,7 @@
         "__tree": "cpp",
         "map": "cpp",
         "__locale": "cpp",
-        "lc-1657": "cpp"
+        "lc-1657": "cpp",
+        "lc-2352": "cpp"
     }
 }

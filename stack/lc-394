@@ -1,0 +1,31 @@
+class Solution {
+public:
+    string decodeString(string s) {
+   stack<int> counts;        // stack for numbers (repeat counts)
+        stack<string> result;     // stack for strings
+        string curr = "";         // current decoded substring
+        int num = 0;
+
+        for (char c : s) {
+            if (isdigit(c)) {
+                num = num * 10 + (c - '0');  // handle multi-digit numbers
+            }
+            else if (c == '[') {
+                counts.push(num);      // store current number
+                result.push(curr);     // store current string
+                num = 0;
+                curr = "";             // reset for next substring
+            }
+            else if (c == ']') {
+                int repeat = counts.top(); counts.pop();
+                string temp = curr;
+                curr = result.top(); result.pop();
+                while (repeat--) curr += temp;   // repeat substring
+            }
+            else {
+                curr += c;              // build string normally
+            }
+        }
+        return curr;
+    }
+};
